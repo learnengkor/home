@@ -51,13 +51,7 @@
 <body>
     <h1>Hello World</h1>
 
-    <!-- Section to display posts -->
-    <div class="container" id="postsSection">
-        <h2>Posts</h2>
-        <div id="postsContainer"></div>
-    </div>
-
-    <!-- Admin login and add post section -->
+    <!-- Admin login section -->
     <div class="container" id="adminSection">
         <h2>Admin Section</h2>
         <form id="loginForm">
@@ -82,6 +76,12 @@
         </div>
     </div>
 
+    <!-- Section to display posts -->
+    <div class="container" id="postsSection">
+        <h2>Posts</h2>
+        <div id="postsContainer"></div>
+    </div>
+
     <script>
         // Function to check admin credentials
         function checkCredentials() {
@@ -91,9 +91,7 @@
             if (username === "ydr" && password === "ydrssh") {
                 document.getElementById("message").innerHTML = "You have successfully logged in as an admin!";
                 document.getElementById("adminSection").style.display = "block"; // Show admin section
-                document.getElementById("postsSection").style.display = "block"; // Show posts section
                 document.getElementById("addPostForm").classList.add("admin-section"); // Show add post form for admin
-
                 displayPosts(); // Display posts including those stored in localStorage
             } else {
                 document.getElementById("message").innerHTML = "Invalid username or password";

@@ -8,7 +8,7 @@
            h1{
                color: white;
            }
-          .container {
+         .container {
                max-width: 300px;
                margin: 40px auto;
                padding: 20px;
@@ -16,13 +16,13 @@
                border: 1px solid #ddd;
                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
            }
-          .form-control {
+         .form-control {
                width: 100%;
                padding: 10px;
                margin-bottom: 20px;
                border: 1px solid #ccc;
            }
-          .btn {
+         .btn {
                background-color: #4CAF50;
                color: #fff;
                padding: 10px 20px;
@@ -30,17 +30,17 @@
                border-radius: 5px;
                cursor: pointer;
            }
-          .btn:hover {
+         .btn:hover {
                background-color: #3e8e41;
            }
-          .post-container {
+         .post-container {
                margin: 40px auto;
                padding: 20px;
                background-color: #fff;
                border: 1px solid #ddd;
                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
            }
-          .post {
+         .post {
                margin-bottom: 20px;
                padding: 10px;
                border-bottom: 1px solid #ccc;
@@ -63,8 +63,16 @@
 
        <div id="post-container" style="display: none;">
            <h2>Admin Dashboard</h2>
-           <button class="btn" onclick="addPost()">Add New Post</button>
+           <button class="btn" onclick="showAddPostForm()">Add Post</button>
            <div id="post-list"></div>
+           <div id="add-post-form" style="display: none;">
+               <label for="post-title">Post Title:</label>
+               <input type="text" id="post-title" class="form-control">
+               <label for="post-content">Post Content:</label>
+               <textarea id="post-content" class="form-control"></textarea>
+               <button class="btn" onclick="addPost()">Add Post</button>
+               <button class="btn" onclick="hideAddPostForm()">Cancel</button>
+           </div>
        </div>
 
        <script>
@@ -80,18 +88,28 @@
                }
            }
 
+           function showAddPostForm() {
+               document.getElementById("add-post-form").style.display = "block";
+           }
+
+           function hideAddPostForm() {
+               document.getElementById("add-post-form").style.display = "none";
+           }
+
            function addPost() {
-               var postTitle = prompt("Enter post title:");
-               var postContent = prompt("Enter post content:");
+               var postTitle = document.getElementById("post-title").value;
+               var postContent = document.getElementById("post-content").value;
                var postHTML = "<div class='post'><h3>" + postTitle + "</h3><p>" + postContent + "</p><button class='btn' onclick='editPost(this)'>Edit</button><button class='btn' onclick='deletePost(this)'>Delete</button></div>";
                document.getElementById("post-list").innerHTML += postHTML;
+               hideAddPostForm();
+               document.getElementById("add-post-form").reset();
            }
 
            function editPost(element) {
                var postTitle = prompt("Enter new post title:");
                var postContent = prompt("Enter new post content:");
                element.parentNode.innerHTML = "<h3>" + postTitle + "</h3><p>" + postContent + "</p><button class='btn' onclick='editPost(this)'>Edit</button><button class='btn' onclick='deletePost(this)'>Delete</button>";
-           }
+}
 
            function deletePost(element) {
                element.parentNode.remove();

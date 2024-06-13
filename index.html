@@ -43,6 +43,9 @@
         .post-item h3 {
             margin-top: 0;
         }
+        .admin-section {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -54,8 +57,8 @@
         <div id="postsContainer"></div>
     </div>
 
-    <!-- Section for admin login and adding posts -->
-    <div class="container" id="adminSection" style="display: none;">
+    <!-- Admin login and add post section -->
+    <div class="container" id="adminSection">
         <h2>Admin Section</h2>
         <form id="loginForm">
             <label for="username">Username:</label>
@@ -67,7 +70,7 @@
         <div id="message"></div>
 
         <!-- Add new post form -->
-        <div id="addPostForm">
+        <div id="addPostForm" class="admin-section">
             <h2>Add New Post</h2>
             <form>
                 <label for="postTitle">Title:</label>
@@ -89,6 +92,8 @@
                 document.getElementById("message").innerHTML = "You have successfully logged in as an admin!";
                 document.getElementById("adminSection").style.display = "block"; // Show admin section
                 document.getElementById("postsSection").style.display = "block"; // Show posts section
+                document.getElementById("addPostForm").classList.add("admin-section"); // Show add post form for admin
+
                 displayPosts(); // Display posts including those stored in localStorage
             } else {
                 document.getElementById("message").innerHTML = "Invalid username or password";
@@ -136,8 +141,8 @@
                 postElement.innerHTML = `
                     <h3>${post.title}</h3>
                     <p>${post.content}</p>
-                    <button onclick="editPost('${post.id}')">Edit</button>
-                    <button onclick="deletePost('${post.id}')">Delete</button>
+                    ${isAdminLoggedIn() ? `<button onclick="editPost('${post.id}')">Edit</button>
+                    <button onclick="deletePost('${post.id}')">Delete</button>` : ''}
                 `;
                 postsContainer.appendChild(postElement);
             });
@@ -168,8 +173,13 @@
             deletePost(postId);
         }
 
+        // Function to check if admin is logged in
+        function isAdminLoggedIn() {
+            return document.getElementById("adminSection").style.display === "block";
+        }
+
         // Initially display posts (even if not logged in)
         displayPosts();
     </script>
 </body>
-    </html>
+</html>

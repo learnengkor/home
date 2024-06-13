@@ -51,6 +51,9 @@
         .admin-actions {
             display: none;
         }
+        .admin-actions.visible {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -96,7 +99,7 @@
             if (username === "ydr" && password === "ydrssh") {
                 document.getElementById("message").innerHTML = "You have successfully logged in as an admin!";
                 document.getElementById("adminSection").style.display = "none"; // Hide login form after successful login
-                document.getElementById("addPostForm").classList.remove("admin-actions"); // Show add post form for admin
+                document.getElementById("addPostForm").classList.add("visible"); // Show add post form for admin
                 displayPosts(); // Display posts including those stored in localStorage
             } else {
                 document.getElementById("message").innerHTML = "Invalid username or password";
@@ -152,10 +155,7 @@
 
             // Show admin actions if logged in
             if (isAdminLoggedIn()) {
-                document.getElementById("addPostForm").style.display = "block";
-                document.querySelectorAll(".admin-actions").forEach(function(elem) {
-                    elem.style.display = "block";
-                });
+                document.getElementById("addPostForm").classList.add("visible");
             }
         }
 

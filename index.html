@@ -47,8 +47,16 @@
 </head>
 <body>
     <h1>Hello World</h1>
-    <div class="container">
-        <h2>Admin Login</h2>
+
+    <!-- Section to display posts -->
+    <div class="container" id="postsSection">
+        <h2>Posts</h2>
+        <div id="postsContainer"></div>
+    </div>
+
+    <!-- Section for admin login and adding posts -->
+    <div class="container" id="adminSection" style="display: none;">
+        <h2>Admin Section</h2>
         <form id="loginForm">
             <label for="username">Username:</label>
             <input type="text" id="username" class="form-control">
@@ -57,24 +65,18 @@
             <button type="button" class="btn" onclick="checkCredentials()">Login</button>
         </form>
         <div id="message"></div>
-    </div>
 
-    <!-- Section to add new post -->
-    <div class="container" id="addPostSection" style="display: none;">
-        <h2>Add New Post</h2>
-        <form id="addPostForm">
-            <label for="postTitle">Title:</label>
-            <input type="text" id="postTitle" class="form-control">
-            <label for="postContent">Content:</label>
-            <textarea id="postContent" class="form-control"></textarea>
-            <button type="button" class="btn" onclick="addPost()">Add Post</button>
-        </form>
-    </div>
-
-    <!-- Section to display posts -->
-    <div class="container" id="postsSection" style="display: none;">
-        <h2>Posts</h2>
-        <div id="postsContainer"></div>
+        <!-- Add new post form -->
+        <div id="addPostForm">
+            <h2>Add New Post</h2>
+            <form>
+                <label for="postTitle">Title:</label>
+                <input type="text" id="postTitle" class="form-control">
+                <label for="postContent">Content:</label>
+                <textarea id="postContent" class="form-control"></textarea>
+                <button type="button" class="btn" onclick="addPost()">Add Post</button>
+            </form>
+        </div>
     </div>
 
     <script>
@@ -85,12 +87,9 @@
 
             if (username === "ydr" && password === "ydrssh") {
                 document.getElementById("message").innerHTML = "You have successfully logged in as an admin!";
-                document.getElementById("loginForm").style.display = "none"; // Hide login form
-                document.getElementById("addPostSection").style.display = "block"; // Show add post section
+                document.getElementById("adminSection").style.display = "block"; // Show admin section
                 document.getElementById("postsSection").style.display = "block"; // Show posts section
-
-                // Display existing posts from localStorage
-                displayPosts();
+                displayPosts(); // Display posts including those stored in localStorage
             } else {
                 document.getElementById("message").innerHTML = "Invalid username or password";
             }
@@ -168,6 +167,9 @@
             // Delete old post after editing
             deletePost(postId);
         }
+
+        // Initially display posts (even if not logged in)
+        displayPosts();
     </script>
 </body>
-   </html>
+    </html>

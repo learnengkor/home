@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sample HTML Code</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
     <style>
         html {
             background: linear-gradient(to right, dodgerblue 0%, deepskyblue 100%);
-        }
-        h1 {
+            font-family: Arial, sans-serif;
             color: white;
+            text-align: center;
         }
         .container {
             max-width: 600px;
@@ -16,16 +18,19 @@
             background-color: #fff;
             border: 1px solid #ddd;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
         .form-control {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
         .btn {
             background-color: #4CAF50;
-            color: #fff;
+            color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -43,7 +48,7 @@
         .post-item h3 {
             margin-top: 0;
         }
-        .admin-section {
+        .admin-actions {
             display: none;
         }
     </style>
@@ -64,7 +69,7 @@
         <div id="message"></div>
 
         <!-- Add new post form -->
-        <div id="addPostForm" class="admin-section">
+        <div id="addPostForm" class="admin-actions">
             <h2>Add New Post</h2>
             <form>
                 <label for="postTitle">Title:</label>
@@ -90,8 +95,8 @@
 
             if (username === "ydr" && password === "ydrssh") {
                 document.getElementById("message").innerHTML = "You have successfully logged in as an admin!";
-                document.getElementById("adminSection").style.display = "block"; // Show admin section
-                document.getElementById("addPostForm").classList.add("admin-section"); // Show add post form for admin
+                document.getElementById("adminSection").style.display = "none"; // Hide login form after successful login
+                document.getElementById("addPostForm").classList.remove("admin-actions"); // Show add post form for admin
                 displayPosts(); // Display posts including those stored in localStorage
             } else {
                 document.getElementById("message").innerHTML = "Invalid username or password";
@@ -144,6 +149,14 @@
                 `;
                 postsContainer.appendChild(postElement);
             });
+
+            // Show admin actions if logged in
+            if (isAdminLoggedIn()) {
+                document.getElementById("addPostForm").style.display = "block";
+                document.querySelectorAll(".admin-actions").forEach(function(elem) {
+                    elem.style.display = "block";
+                });
+            }
         }
 
         // Function to delete a post
@@ -173,7 +186,7 @@
 
         // Function to check if admin is logged in
         function isAdminLoggedIn() {
-            return document.getElementById("adminSection").style.display === "block";
+            return document.getElementById("adminSection").style.display === "none";
         }
 
         // Initially display posts (even if not logged in)

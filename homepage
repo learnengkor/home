@@ -1,192 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Language Learning Web App</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    h2 {
-      color: #333;
-      margin-bottom: 10px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    a {
-      text-decoration: none;
-      color: #337ab7;
-    }
-    a:hover {
-      color: #23527c;
-    }
-   .container {
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Language Learning Web App</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    h2 {
-      color: #333;
-      margin-bottom: 10px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    a {
-      text-decoration: none;
-      color: #337ab7;
-    }
-    a:hover {
-      color: #23527c;
-    }
-   .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#post">Posts</a></li>
-          <li><a href="#video">Videos</a></li>
-          <li><a href="#booking">Booking</a></li>
-          <li><a href="#admin">Admin</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section id="post">
-        <h2>Posts</h2>
-        <ul>
-          <li>
-            <h3>Post 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-          </li>
-          <li>
-            <h3>Post 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-          </li>
-        </ul>
-      </section>
-      <section id="video">
-        <h2>Videos</h2>
-        <video width="100%" controls>
-          <source src="https://example.com/video.mp4" type="video/mp4">
-        </video>
-      </section>
-      <section id="booking">
-        <h2>Booking Schedule</h2>
-        <ul>
-          <li>2023-02-20 - 10:00 AM</li>
-          <li>2023-02-21 - 2:00 PM</li>
-          <li>2023-02-22 - 10:00 AM</li>
-        </ul>
-      </section>
-      <section id="admin">
-        <h2>Admin Dashboard</h2>
-        <form>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password">
-          <button type="submit">Login</button>
-        </form>
-        <ul>
-          <li><a href="#admin/posts">Manage Posts</a></li>
-          <li><a href="#admin/videos">Manage Videos</a></li>
-          <li><a href="#admin/bookings">Manage Bookings</a></li>
-        </ul>
-      </section>
-    </main>
-  </div>
-  <script>
-    // Add event listener to admin login form
-    document.querySelector('#admin form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const password = document.querySelector('#password').value;
-      if (password === 'ydrnta19') {
-        // redirect to admin dashboard
-        window.location.href = '#admin/dashboard';
-      } else {
-        alert('Invalid password');
-      }
-    });
-  </script>
-</body>
-</html>￼Enter      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#post">Posts</a></li>
-          <li><a href="#video">Videos</a></li>
-          <li><a href="#booking">Booking</a></li>
-          <li><a href="#admin">Admin</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section id="post">
-        <h2>Posts</h2>
-        <ul>
-          <li>
-      <h3>Post 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-          </li>
-          <li>
-            <h3>Post 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-          </li>
-        </ul>
-      </section>
-      <section id="video">
-        <h2>Videos</h2>
-        <video width="100%" controls>
-          <source src="https://example.com/video.mp4" type="video/mp4">
-        </video>
-      </section>
-      <section id="booking">
-        <h2>Booking Schedule</h2>
-        <ul>
-          <li>2023-02-20 - 10:00 AM</li>
-          <li>2023-02-21 - 2:00 PM</li>
-          <li>2023-02-22 - 10:00 AM</li>
-        </ul>
-      </section>
-      <section id="admin">
-        <h2>Admin Dashboard</h2>
-        <form>
+<html>
+   <head>
+       <title>Sample HTML Code</title>
+       <style>
+           html {
+               background: linear-gradient(to right, dodgerblue 0%, deepskyblue 100%);
+           }
+           h1{
+               color: white;
+           }
+          .container {
+               max-width: 300px;
+               margin: 40px auto;
+               padding: 20px;
+               background-color: #fff;
+               border: 1px solid #ddd;
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           }
+          .form-control {
+               width: 100%;
+               padding: 10px;
+               margin-bottom: 20px;
+               border: 1px solid #ccc;
+           }
+          .btn {
+               background-color: #4CAF50;
+               color: #fff;
+               padding: 10px 20px;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+           }
+          .btn:hover {
+               background-color: #3e8e41;
+           }
+          .post-container {
+               margin: 40px auto;
+               padding: 20px;
+               background-color: #fff;
+               border: 1px solid #ddd;
+               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           }
+          .post {
+               margin-bottom: 20px;
+               padding: 10px;
+               border-bottom: 1px solid #ccc;
+           }
+       </style>
+   </head>
+   <body>
+       <h1>Hello World</h1>
+       <div class="container">
+           <h2>Admin Login</h2>
+           <form>
+               <label for="username">Username:</label>
+               <input type="text" id="username" class="form-control">
+               <label for="password">Password:</label>
+               <input type="password" id="password" class="form-control">
+               <button class="btn" onclick="checkCredentials()">Login</button>
+           </form>
+           <div id="message"></div>
+       </div>
+
+       <div id="post-container" style="display: none;">
+           <h2>Admin Dashboard</h2>
+           <button class="btn" onclick="addPost()">Add New Post</button>
+           <div id="post-list"></div>
+       </div>
+
+       <script>
+           function checkCredentials() {
+               var username = document.getElementById("username").value;
+               var password = document.getElementById("password").value;
+
+               if (username === "ydr" && password === "ydrssh") {
+                   document.getElementById("message").innerHTML = "You have successfully logged in as an admin!";
+                   document.getElementById("post-container").style.display = "block";
+               } else {
+                   document.getElementById("message").innerHTML = "Invalid username or password";
+               }
+           }
+
+           function addPost() {
+               var postTitle = prompt("Enter post title:");
+               var postContent = prompt("Enter post content:");
+               var postHTML = "<div class='post'><h3>" + postTitle + "</h3><p>" + postContent + "</p><button class='btn' onclick='editPost(this)'>Edit</button><button class='btn' onclick='deletePost(this)'>Delete</button></div>";
+               document.getElementById("post-list").innerHTML += postHTML;
+           }
+
+           function editPost(element) {
+               var postTitle = prompt("Enter new post title:");
+               var postContent = prompt("Enter new post content:");
+               element.parentNode.innerHTML = "<h3>" + postTitle + "</h3><p>" + postContent + "</p><button class='btn' onclick='editPost(this)'>Edit</button><button class='btn' onclick='deletePost(this)'>Delete</button>";
+           }
+
+           function deletePost(element) {
+               element.parentNode.remove();
+           }
+       </script>
+   </body>
+</html>
